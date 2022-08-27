@@ -15,6 +15,11 @@ import {
   faBell,
   faMessage,
   faList,
+  faAngleUp,
+  faAngleDown,
+  faDollarSign,
+  faCommentDollar,
+  faClipboardCheck,
 } from "@fortawesome/free-solid-svg-icons";
 
 import {
@@ -32,6 +37,11 @@ library.add(
   faBell,
   faMessage,
   faList,
+  faAngleUp,
+  faAngleDown,
+  faDollarSign,
+  faCommentDollar,
+  faClipboardCheck,
 );
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

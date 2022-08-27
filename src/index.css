@@ -32,3 +32,21 @@ img {
   background-color: #00acc1;
 }
 
+.transition-color {
+  transition: color 0.35s ease;
+}
+
+.transition-bg {
+  transition: background-color 0.35s ease;
+}
+
+.smooth-shadow {
+  box-shadow:
+    0.6px 0.6px 2.2px rgba(0, 0, 0, 0.028),
+    1.3px 1.3px 5.3px rgba(0, 0, 0, 0.04),
+    2.5px 2.5px 10px rgba(0, 0, 0, 0.05),
+    4.5px 4.5px 17.9px rgba(0, 0, 0, 0.06),
+    8.4px 8.4px 33.4px rgba(0, 0, 0, 0.072),
+    20px 20px 80px rgba(0, 0, 0, 0.1)
+  ;
+}
