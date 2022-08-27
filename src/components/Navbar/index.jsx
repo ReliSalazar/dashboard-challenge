@@ -22,7 +22,11 @@ function Navbar() {
         />
         <button
           onClick={() => search()}
-          className="search-button hover:bg-stone-200 h-8 w-8 rounded-full"
+          disabled={!query}
+          className={`
+            search-button hover:bg-stone-200 h-8 w-8 rounded-full
+            ${!query ? "text-stone-400" : "text-stone-800"}
+          `}
         >
           <FontAwesomeIcon icon={["fa", "magnifying-glass"]} />
         </button>
@@ -33,11 +37,19 @@ function Navbar() {
           <FontAwesomeIcon icon={["fa", "globe"]} />
           English
         </button>
-        <button className="util-button flex gap-2 items-center hover:bg-stone-200 py-1 px-2 rounded-full h-8 w-8">
+        <button className="util-button flex gap-1 items-center hover:bg-stone-200 py-1 px-2 rounded-full min-h-8 min-w-8">
           <FontAwesomeIcon icon={["fa", "bell"]} />
+          {true
+            ? <span className="counter bg-red-600 h-5 w-5 rounded-full text-xs text-stone-100 flex items-center justify-center">1</span>
+            : null
+          }
         </button>
-        <button className="util-button flex gap-2 items-center hover:bg-stone-200 py-1 px-2 rounded-full h-8 w-8">
+        <button className="util-button flex gap-1 items-center hover:bg-stone-200 py-1 px-2 rounded-full min-h-8 min-w-8">
           <FontAwesomeIcon icon={["fa", "message"]} />
+          {false
+            ? <span className="counter bg-red-600 h-5 w-5 rounded-full text-xs text-stone-100 flex items-center justify-center">2</span>
+            : null
+          }
         </button>
         <button className="util-button flex gap-2 items-center hover:bg-stone-200 py-1 px-2 rounded-full h-8 w-8">
           <FontAwesomeIcon icon={["fa", "list"]} />
