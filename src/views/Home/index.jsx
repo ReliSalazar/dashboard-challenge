@@ -1,4 +1,5 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
+import kpisService from "../../services/kpis.js";
 import "./Home.scss";
 import Sidebar from "../../components/Sidebar";
 import Navbar from "../../components/Navbar";
@@ -34,6 +35,12 @@ function Home() {
       captured: 12345.67,
     },
   ]);
+
+  useEffect(() => {
+    kpisService.getAll().then((data) => {
+      console.log(data);
+    });
+  }, []);
 
   return (
     <div className="Home bg-stone-50 flex">
