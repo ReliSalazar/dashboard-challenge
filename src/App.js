@@ -1,17 +1,18 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Sidebar from "./components/Sidebar";
 import Home from "./views/Home";
+import Login from "./views/Login";
 import "./App.css";
 
 function App() {
   return (
     <Router>
-      {/*
-        If you want to put components that renders on all the views
-        put theme inside Router component, not in Routes component.
-      */}
-
+      <Sidebar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/">
+          <Route index element={<Home />} />
+          <Route path="login" element={<Login />} />
+        </Route>
 
         <Route
           path="*"
@@ -22,9 +23,22 @@ function App() {
           }
         />
       </Routes>
-
     </Router>
   );
 }
+
+/*
+  for users or the list whatever, use something like
+  <Route path="users">
+    <Route index element={List} />
+    <Route path=":userId" element={Single} />
+    <Route path="new" element={New} />
+  </Route>
+
+  so you can go to routes like
+  /users to get all users
+  /users/123 to get user 123
+  /users/new to create a new one
+*/
 
 export default App;
