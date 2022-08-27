@@ -1,24 +1,16 @@
+import React, {useState, useEffect} from "react";
 import "./Widget.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NavLink } from "react-router-dom";
 
 function Widget({kpi, className}) {
-  let icon;
+  const [icon, setIcon] = useState("dollar-sign");
+  const [color, setColor] = useState("bg-stone-400");
 
-  switch(kpi.name) {
-    case "Ventas":
-      icon = "dollar-sign";
-      break;
-    case "Cuentas por cobrar":
-      icon = "comment-dollar";
-      break;
-    case "Inventario":
-      icon = "clipboard-check";
-      break;
-    default:
-      icon = "dollar-sign";
-      break;
-  }
+  useEffect(()=>{
+    setIcon(getIcon(kpi.name));
+    setColor(getColor(kpi.name));
+  },[kpi]);
 
   return (
     <div className={`${className} widget p-5 text-stone-800`}>
@@ -39,13 +31,46 @@ function Widget({kpi, className}) {
           <NavLink to="" className="underline font-black text-sm hover:text-purple-600 transition-color">
             See all {kpi.name}
           </NavLink>
-          <div className="icon">
+          <div
+            className={`
+              ${color}
+              h-8 w-8 rounded-lg
+              flex justify-center items-center
+              text-stone-100
+            `}
+          >
             <FontAwesomeIcon icon={["fa", icon]} />
           </div>
         </div>
       </div>
     </div>
   );
+}
+
+function getIcon(name) {
+  switch(name) {
+    case "Ventas":
+      return "dollar-sign";
+    case "Cuentas por cobrar":
+      return "comment-dollar";
+    case "Inventario":
+      return "clipboard-check";
+    default:
+      return "dollar-sign";
+  }
+}
+
+function getColor(name) {
+  switch(name) {
+    case "Ventas":
+      return "bg-amber-600";
+    case "Cuentas por cobrar":
+      return "bg-purple-600";
+    case "Inventario":
+      return "bg-green-600";
+    default:
+      return "bg-green-600";
+  }
 }
 
 export default Widget;

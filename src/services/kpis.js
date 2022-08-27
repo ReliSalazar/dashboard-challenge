@@ -1,7 +1,7 @@
 import axios from "axios";
 const baseUrl = "https://frontend-exercise.herokuapp.com/api";
 
-const getAll = () => {
+const getAll = async () => {
   const request = axios.get(`${baseUrl}/kpi`);
   return request.then((response) => response.data);
 };

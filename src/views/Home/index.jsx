@@ -8,7 +8,7 @@ import Widget from "../../components/Widget";
 function Home() {
   const [kpis, setKpis] = useState([
     {
-      name: "kpi 1",
+      name: "Ventas",
       goal: {
         type: "Min",
         value: 12345.67,
@@ -16,7 +16,7 @@ function Home() {
       captured: 12345.67,
     },
     {
-      name: "kpi 2",
+      name: "Cuentas por cobrar",
       goal: {
         type: "Max",
         value: 12345.67,
@@ -24,7 +24,7 @@ function Home() {
       captured: 12345.67,
     },
     {
-      name: "kpi 3",
+      name: "Inventario",
       goal: {
         type: "Between",
         value: {
@@ -36,11 +36,11 @@ function Home() {
     },
   ]);
 
-  useEffect(() => {
-    kpisService.getAll().then((data) => {
-      console.log(data);
-    });
-  }, []);
+  //useEffect(() => {
+    //kpisService.getAll().then((data) => {
+      //console.log(data);
+    //});
+  //}, []);
 
   return (
     <div className="Home bg-stone-50 flex">
