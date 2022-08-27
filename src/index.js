@@ -4,6 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fab } from "@fortawesome/free-brands-svg-icons";
+import {
+  faEnvelope,
+  faDatabase,
+  faPaintBrush,
+} from "@fortawesome/free-solid-svg-icons";
+
+library.add(fab, faEnvelope, faDatabase, faPaintBrush);
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
