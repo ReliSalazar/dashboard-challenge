@@ -50,3 +50,14 @@ img {
     20px 20px 80px rgba(0, 0, 0, 0.1)
   ;
 }
+
+.smooth-shadow-sm {
+  box-shadow:
+    0.2px 0.2px 2.2px rgba(0, 0, 0, 0.02),
+    0.5px 0.5px 5.3px rgba(0, 0, 0, 0.028),
+    1px 1px 10px rgba(0, 0, 0, 0.035),
+    1.8px 1.8px 17.9px rgba(0, 0, 0, 0.042),
+    3.3px 3.3px 33.4px rgba(0, 0, 0, 0.05),
+    8px 8px 80px rgba(0, 0, 0, 0.07)
+  ;
+}
