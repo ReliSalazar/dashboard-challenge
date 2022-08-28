@@ -27,8 +27,8 @@ function Featured({className}) {
   ]);
 
   return (
-    <div className={`${className} featured p-5`}>
-      <div className="border smooth-shadow p-3 rounded-lg">
+    <div className={`${className} featured py-2 px-5`}>
+      <div className="border smooth-shadow-sm p-3 rounded-lg">
         <div className="flex justify-between items-center mb-5">
           <h2 className="font-black text-lg text-stone-600">
             Total Revenue

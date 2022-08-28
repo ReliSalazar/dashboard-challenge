@@ -62,8 +62,11 @@ function Home() {
           }
           </div>
           <div className="charts flex">
-            <Featured className="border basis-1/3" />
-            <Chart className="border basis-2/3" />
+            <Featured className="basis-1/3" />
+            <Chart className="basis-2/3" />
+          </div>
+          <div className="table">
+            <p>table</p>
           </div>
         </div>
       </div>
