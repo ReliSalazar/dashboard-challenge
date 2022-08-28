@@ -1,31 +1,65 @@
 import React, {useState, useEffect} from "react";
-import "./Widget.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NavLink } from "react-router-dom";
+import "./Widget.scss";
 
 function Widget({kpi, className}) {
-  const [icon, setIcon] = useState("dollar-sign");
-  const [color, setColor] = useState("bg-stone-400");
+  //set the config with defualt settings
+  const [config, setConfig] = useState({
+      icon: getIcon(""),
+      iconColor: getColor(""),
+      indicatorColor: getIndicatorColor(""),
+      kpiIcon: getKpiIcon(""),
+  });
 
   useEffect(()=>{
-    setIcon(getIcon(kpi.name));
-    setColor(getColor(kpi.name));
+    /*
+     * whenever the async call to the api is done,
+     * and kpi is passed from the component that
+     * uses this widget, it will reset the new configs
+     * on the state, and it will re-render with the
+     * new data.
+     */
+    const newConfig = {
+      icon: getIcon(kpi.name),
+      iconColor: getColor(kpi.name),
+      indicatorColor: getIndicatorColor(kpi.goal.type),
+      kpiIcon: getKpiIcon(kpi.goal.type),
+    }
+    setConfig(newConfig);
   },[kpi]);
 
   return (
     <div className={`${className} widget p-5 text-stone-800`}>
-      <div className="smooth-shadow p-2">
+      <div className="smooth-shadow p-2 rounded-lg">
         <div className="flex justify-between items-center">
-          <h2 className="font-black text-xl text-stone-400">{kpi.name}</h2>
-          <div className="indicator text-emerald-600">
+          <h2 className="font-black text-lg text-stone-400">
+            { kpi.name }
+          </h2>
+          <div
+            className={`
+              ${config.indicatorColor}
+              indicator
+            `}
+          >
             <div className="flex items-center gap-2 font-black text-sm">
-              <FontAwesomeIcon icon={["fa", "angle-up"]} />
-              <p>+15%</p>
+              <FontAwesomeIcon icon={["fa", config.kpiIcon]} />
+              {/*
+                this section is just an example for visual proposes,
+                this way to set the % isn't correct, it will need a new
+                function to process this data, and an evaluation to change
+                the widget on a range type kpi.
+              */}
+              <p>
+                {(kpi.goal.type === "Max" ? "+" : "-") + "15%"}
+              </p>
             </div>
           </div>
         </div>
         
-        <p className="text-3xl py-5">{`$${kpi.captured}`}</p>
+        <p className="text-3xl py-5">
+          { `$${kpi.captured}` }
+        </p>
 
         <div className="flex justify-between items-center">
           <NavLink to="" className="underline font-black text-sm hover:text-purple-600 transition-color">
@@ -33,13 +67,13 @@ function Widget({kpi, className}) {
           </NavLink>
           <div
             className={`
-              ${color}
-              h-8 w-8 rounded-lg
+              ${config.iconColor}
+             h-8 w-8 rounded-lg
               flex justify-center items-center
               text-stone-100
             `}
           >
-            <FontAwesomeIcon icon={["fa", icon]} />
+            <FontAwesomeIcon icon={["fa", config.icon]} />
           </div>
         </div>
       </div>
@@ -63,13 +97,35 @@ function getIcon(name) {
 function getColor(name) {
   switch(name) {
     case "Ventas":
-      return "bg-amber-600";
+      return "bg-green-600";
     case "Cuentas por cobrar":
       return "bg-purple-600";
     case "Inventario":
-      return "bg-green-600";
+      return "bg-amber-600";
     default:
-      return "bg-green-600";
+      return "bg-stone-400";
+  }
+}
+
+function getIndicatorColor(type) {
+  switch(type) {
+    case "Max":
+      return "text-green-600";
+    case "Min":
+      return "text-red-600";
+    default:
+      return "text-stone-400";
+  }
+}
+
+function getKpiIcon(type) {
+  switch(type) {
+    case "Max":
+      return "angle-up";
+    case "Min":
+      return "angle-down";
+    default:
+      return "angle-up";
   }
 }
 

@@ -39,6 +39,7 @@ function Home() {
   //useEffect(() => {
     //kpisService.getAll().then((data) => {
       //console.log(data);
+      ////setKpis(data);
     //});
   //}, []);
 
