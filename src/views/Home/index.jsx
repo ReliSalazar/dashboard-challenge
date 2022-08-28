@@ -6,6 +6,7 @@ import Navbar from "../../components/Navbar";
 import Widget from "../../components/Widget";
 import Featured from "../../components/Featured";
 import Chart from "../../components/Chart";
+import Table from "../../components/Table";
 
 function Home() {
   const [kpis, setKpis] = useState([
@@ -53,20 +54,22 @@ function Home() {
         
         <div className="homeContainer py-2 px-5">
           <div className="widgets flex mb-5">
-          {
-            kpis.map((kpi, idx) => {
-              return (
-                <Widget kpi={kpi} className="basis-1/3" key={idx} />
-              );
-            })
-          }
+            {
+              kpis.map((kpi, idx) => {
+                return (
+                  <Widget kpi={kpi} className="basis-1/3" key={idx} />
+                );
+              })
+            }
           </div>
+
           <div className="charts flex">
             <Featured className="basis-1/3" />
             <Chart className="basis-2/3" />
           </div>
-          <div className="table">
-            <p>table</p>
+
+          <div className="table-container">
+            <Table />
           </div>
         </div>
       </div>
