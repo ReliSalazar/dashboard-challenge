@@ -47,30 +47,31 @@ function Home() {
   //}, []);
 
   return (
-    <div className="Home bg-stone-50 flex">
-      <Sidebar className="basis-1/6" />
-      <div className="content basis-5/6">
+    <div className="Home bg-stone-50 flex flex-col lg:flex-row">
+      <Sidebar className="lg:basis-1/6" />
+      <div className="content basis-full lg:basis-5/6">
         <Navbar />
         
         <div className="homeContainer py-2 px-5">
-          <div className="widgets flex mb-5">
+          <div className="widgets flex mb-5 flex-col lg:flex-row">
             {
               kpis.map((kpi, idx) => {
                 return (
-                  <Widget kpi={kpi} className="basis-1/3" key={idx} />
+                  <Widget kpi={kpi} className="basis-full lg:basis-1/3" key={idx} />
                 );
               })
             }
           </div>
 
-          <div className="charts flex">
-            <Featured className="basis-1/3" />
-            <Chart className="basis-2/3" />
+          <div className="charts flex flex-col lg:flex-row">
+            <Featured className="basis-full lg:basis-1/3" />
+            <Chart className="basis-full lg:basis-2/3" />
           </div>
-
+    {/*
           <div className="table-container">
             <Table />
           </div>
+      */}
         </div>
       </div>
     </div>

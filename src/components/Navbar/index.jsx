@@ -11,8 +11,8 @@ function Navbar() {
   }
 
   return (
-    <div className="navbar p-2 bg-stone-100 text-stone-800 flex">
-      <div className="search flex gap-2 items-center basis-1/6">
+    <div className="navbar p-2 bg-stone-100 text-stone-800 flex flex-col sm:flex-row">
+      <div className="search flex gap-2 justify-center sm:justify-start items-center basis-full sm:basis-1/6 mb-2 sm:mb-0">
         <input
           type="text"
           placeholder="Search..."
@@ -32,7 +32,7 @@ function Navbar() {
         </button>
       </div>
 
-      <div className="items flex gap-2 justify-end items-center basis-5/6">
+      <div className="items flex gap-2 justify-center sm:justify-end items-center basis-full sm:basis-5/6">
         <button className="util-button flex gap-2 items-center hover:bg-stone-200 py-1 px-2 rounded-full">
           <FontAwesomeIcon icon={["fa", "globe"]} />
           English
