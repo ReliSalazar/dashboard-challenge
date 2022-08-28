@@ -31,9 +31,9 @@ function Widget({kpi, className}) {
 
   return (
     <div className={`${className} widget p-5 text-stone-800`}>
-      <div className="smooth-shadow p-2 rounded-lg">
+      <div className="smooth-shadow p-3 rounded-lg">
         <div className="flex justify-between items-center">
-          <h2 className="font-black text-lg text-stone-400">
+          <h2 className="font-black text-lg text-stone-600">
             { kpi.name }
           </h2>
           <div

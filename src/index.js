@@ -20,6 +20,7 @@ import {
   faDollarSign,
   faCommentDollar,
   faClipboardCheck,
+  faEllipsisVertical,
 } from "@fortawesome/free-solid-svg-icons";
 
 import {
@@ -42,6 +43,7 @@ library.add(
   faDollarSign,
   faCommentDollar,
   faClipboardCheck,
+  faEllipsisVertical,
 );
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

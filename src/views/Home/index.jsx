@@ -4,6 +4,8 @@ import "./Home.scss";
 import Sidebar from "../../components/Sidebar";
 import Navbar from "../../components/Navbar";
 import Widget from "../../components/Widget";
+import Featured from "../../components/Featured";
+import Chart from "../../components/Chart";
 
 function Home() {
   const [kpis, setKpis] = useState([
@@ -50,7 +52,7 @@ function Home() {
         <Navbar />
         
         <div className="homeContainer py-2 px-5">
-          <div className="widgets flex">
+          <div className="widgets flex mb-5">
           {
             kpis.map((kpi, idx) => {
               return (
@@ -59,8 +61,9 @@ function Home() {
             })
           }
           </div>
-          <div className="border">
-            <p>more content</p>
+          <div className="charts flex">
+            <Featured className="border basis-1/3" />
+            <Chart className="border basis-2/3" />
           </div>
         </div>
       </div>
