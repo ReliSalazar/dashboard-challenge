@@ -67,11 +67,9 @@ function Home() {
             <Featured className="basis-full lg:basis-1/3" />
             <Chart className="basis-full lg:basis-2/3" />
           </div>
-    {/*
           <div className="table-container">
             <Table />
           </div>
-      */}
         </div>
       </div>
     </div>

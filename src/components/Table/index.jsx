@@ -61,67 +61,69 @@ function Table() {
         <h2 className="font-black text-lg text-stone-600">
           Latest Transactions
         </h2>
-        <table className="table-auto w-full">
-          <thead>
-            <tr>
-              <th className="text-start border-b p-2">
-                ID
-              </th>
-              <th className="text-start border-b p-2">
-                Product
-              </th>
-              <th className="text-start border-b p-2">
-                Price
-              </th>
-              <th className="text-start border-b p-2">
-                Total
-              </th>
-              <th className="text-start border-b p-2">
-                Total
-                Date
-              </th>
-              <th className="text-start border-b p-2">
-                Payment method
-              </th>
-              <th className="text-start border-b p-2">
-                status
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.map((product, i)=> {
-              const values = [
-                product.ID,
-                product.name,
-                product.price,
-                product.total,
-                getFormatDate(product.date),
-                product.paymentMethod,
-                product.status,
-              ]
-              return (
-                <tr key={product.ID}>
-                  {values.map((value, idx) => {
-                    return (
-                      <td key={idx} className={`
-                        ${i%2 === 0 ? "bg-stone-200" : ""}
-                        p-2
-                      `}>
-                        <span className={`
-                            ${value === "approved" ? "bg-emerald-300 py-1 px-2" : ""}
-                            ${value === "pending" ? "bg-amber-300 py-1 px-2" : ""}
-                            rounded-lg
+        <div className="overflow-x-auto py-5">
+          <table className="table-auto w-full">
+            <thead>
+              <tr>
+                <th className="text-start border-b p-2">
+                  ID
+                </th>
+                <th className="text-start border-b p-2">
+                  Product
+                </th>
+                <th className="text-start border-b p-2">
+                  Price
+                </th>
+                <th className="text-start border-b p-2">
+                  Total
+                </th>
+                <th className="text-start border-b p-2">
+                  Total
+                  Date
+                </th>
+                <th className="text-start border-b p-2">
+                  Payment method
+                </th>
+                <th className="text-start border-b p-2">
+                  status
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.map((product, i)=> {
+                const values = [
+                  product.ID,
+                  product.name,
+                  product.price,
+                  product.total,
+                  getFormatDate(product.date),
+                  product.paymentMethod,
+                  product.status,
+                ]
+                return (
+                  <tr key={product.ID}>
+                    {values.map((value, idx) => {
+                      return (
+                        <td key={idx} className={`
+                          ${i%2 === 0 ? "bg-stone-200" : ""}
+                          p-2
                         `}>
-                          {value}
-                        </span>
-                      </td>
-                    );
-                  })}
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+                          <span className={`
+                              ${value === "approved" ? "bg-emerald-300 py-1 px-2" : ""}
+                              ${value === "pending" ? "bg-amber-300 py-1 px-2" : ""}
+                              rounded-lg
+                          `}>
+                            {value}
+                          </span>
+                        </td>
+                      );
+                    })}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

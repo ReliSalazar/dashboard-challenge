@@ -57,7 +57,7 @@ function Navbar() {
         `}>
           <FontAwesomeIcon icon={["fa", "bell"]} />
           {true
-            ? <Notification value={1} />
+            ? <Notification content={1} />
             : null
           }
         </button>
@@ -70,7 +70,7 @@ function Navbar() {
         `}>
           <FontAwesomeIcon icon={["fa", "message"]} />
           {false
-            ? <Notification value={2} />
+            ? <Notification content={2} />
             : null
           }
         </button>
