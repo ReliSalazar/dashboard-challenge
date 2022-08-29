@@ -59,7 +59,9 @@ function Featured({className}) {
                 return (
                   <div className="basis-1/3 px-2" key={idx}>
                     <div className="p-3 flex flex-col justify-center items-center text-sm">
-                      <h2 className="font-black text-stone-800 mb-2">{widget.name}</h2>
+                      <h2 className="font-black text-stone-800 mb-2">
+                        {widget.name}
+                      </h2>
                       <div className={`${widget.color} flex gap-2 items-center`}>
                         <FontAwesomeIcon icon={["fa", [widget.icon]]} />
                         <p>{widget.value}</p>

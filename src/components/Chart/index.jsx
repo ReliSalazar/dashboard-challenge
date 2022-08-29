@@ -20,7 +20,7 @@ function Chart({className}) {
 
   return (
     <div className={`${className} chart py-2 px-5`}>
-      <div className="smooth-shadow-sm p-3 rounded-lg">
+      <div className="smooth-shadow-sm p-3 rounded-lg h-full">
         <h2 className="font-black text-lg text-stone-600 mb-5">
           Last 6 months (revenue)
         </h2>

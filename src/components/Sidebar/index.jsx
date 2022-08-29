@@ -5,9 +5,15 @@ import { NavLink } from "react-router-dom";
 function Sidebar({className}) {
   if(window.innerWidth > 640) {
     return (
-      <div className={`sidebar border-r min-h-screen bg-stone-100 text-stone-800 ${className}`}>
+      <div className={`
+        ${className}
+        sidebar border-r min-h-screen
+        bg-stone-100 text-stone-800
+      `}>
         <div className="header h-14 flex justify-center items-center">
-          <span className="logo text-purple-600 font-black text-xl sm:text-2xl">Logo</span>
+          <span className="logo text-purple-600 font-black text-xl sm:text-2xl">
+            Logo
+          </span>
         </div>
         <hr />
         <div className="content">

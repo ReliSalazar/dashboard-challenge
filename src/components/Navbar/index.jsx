@@ -1,6 +1,7 @@
 import "./Navbar.scss";
 import React, {useState} from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Notification from "./components/Notification";
 
 function Navbar() {
   const [query, setQuery] = useState("");
@@ -12,7 +13,10 @@ function Navbar() {
 
   return (
     <div className="navbar p-2 bg-stone-100 text-stone-800 flex flex-col sm:flex-row">
-      <div className="search flex gap-2 justify-center sm:justify-start items-center basis-full sm:basis-1/6 mb-2 sm:mb-0">
+      <div className={`
+          search flex gap-2 justify-center sm:justify-start items-center
+          basis-full sm:basis-1/6 mb-2 sm:mb-0
+      `}>
         <input
           type="text"
           placeholder="Search..."
@@ -32,26 +36,51 @@ function Navbar() {
         </button>
       </div>
 
-      <div className="items flex gap-2 justify-center sm:justify-end items-center basis-full sm:basis-5/6">
-        <button className="util-button flex gap-2 items-center hover:bg-stone-200 py-1 px-2 rounded-full">
+      <div className={`
+        items flex gap-2 justify-center sm:justify-end items-center
+        basis-full sm:basis-5/6
+      `}>
+        <button className={`
+          util-button flex gap-2 items-center
+          hover:bg-stone-200
+          py-1 px-2 rounded-full
+        `}>
           <FontAwesomeIcon icon={["fa", "globe"]} />
           English
         </button>
-        <button className="transition-bg flex gap-1 items-center hover:bg-stone-200 py-1 px-2 rounded-full min-h-8 min-w-8">
+
+        <button className={`
+          transition-bg hover:bg-stone-200
+          flex gap-1 items-center
+           py-1 px-2 rounded-full
+           min-h-8 min-w-8
+        `}>
           <FontAwesomeIcon icon={["fa", "bell"]} />
           {true
-            ? <span className="counter bg-red-600 h-5 w-5 rounded-full text-xs text-stone-100 flex items-center justify-center">1</span>
+            ? <Notification value={1} />
             : null
           }
         </button>
-        <button className="transition-bg flex gap-1 items-center hover:bg-stone-200 py-1 px-2 rounded-full min-h-8 min-w-8">
+
+        <button className={`
+          transition-bg hover:bg-stone-200
+          flex gap-1 items-center
+           py-1 px-2 rounded-full
+           min-h-8 min-w-8
+        `}>
           <FontAwesomeIcon icon={["fa", "message"]} />
           {false
-            ? <span className="counter bg-red-600 h-5 w-5 rounded-full text-xs text-stone-100 flex items-center justify-center">2</span>
+            ? <Notification value={2} />
             : null
           }
         </button>
-        <button className="transition-bg flex gap-2 items-center hover:bg-stone-200 py-1 px-2 rounded-full h-8 w-8">
+
+        <button className={`
+          transition-bg hover:bg-stone-200
+          flex gap-2 items-center
+           py-1 px-2 rounded-full
+           h-8 w-8
+        `}>
           <FontAwesomeIcon icon={["fa", "list"]} />
         </button>
       </div>

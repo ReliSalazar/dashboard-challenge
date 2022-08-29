@@ -31,7 +31,10 @@ function Widget({kpi, className}) {
 
   return (
     <div className={`${className} widget py-2 px-5 text-stone-800`}>
-      <div className="smooth-shadow-sm p-3 rounded-lg h-full flex flex-col justify-between">
+      <div className={`
+        smooth-shadow-sm p-3 rounded-lg h-full
+        flex flex-col justify-between
+      `}>
         <div className="flex justify-between items-center">
           <h2 className="font-black text-lg text-stone-600">
             { kpi.name }
@@ -62,17 +65,20 @@ function Widget({kpi, className}) {
         </p>
 
         <div className="flex justify-between items-center">
-          <NavLink to="" className="underline font-black text-sm hover:text-purple-600 transition-color">
+          <NavLink to=""
+            className={`
+              underline font-black text-sm
+              transition-color hover:text-purple-600
+          `}>
             See all {kpi.name}
           </NavLink>
-          <div
-            className={`
-              ${config.iconColor}
-             h-8 w-8 rounded-lg
-              flex justify-center items-center
-              text-stone-100
-            `}
-          >
+
+          <div className={`
+            ${config.iconColor}
+            h-8 w-8 rounded-lg
+            flex justify-center items-center
+            text-stone-100
+          `}>
             <FontAwesomeIcon icon={["fa", config.icon]} />
           </div>
         </div>

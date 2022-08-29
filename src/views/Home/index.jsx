@@ -47,13 +47,13 @@ function Home() {
   //}, []);
 
   return (
-    <div className="Home bg-stone-50 flex flex-col lg:flex-row">
-      <Sidebar className="lg:basis-1/6" />
-      <div className="content basis-full lg:basis-5/6">
+    <div className="Home bg-stone-50 flex flex-col sm:flex-row">
+      <Sidebar className="sm:basis-2/6 md:basis-1/6" />
+      <div className="content basis-full sm:basis-4/6 md:basis-5/6">
         <Navbar />
         
         <div className="homeContainer py-2 px-5">
-          <div className="widgets flex mb-5 flex-col lg:flex-row">
+          <div className="widgets flex mb-5 flex-col md:flex-row">
             {
               kpis.map((kpi, idx) => {
                 return (

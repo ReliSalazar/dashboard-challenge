@@ -107,13 +107,11 @@ function Table() {
                         ${i%2 === 0 ? "bg-stone-200" : ""}
                         p-2
                       `}>
-                        <span
-                          className={`
+                        <span className={`
                             ${value === "approved" ? "bg-emerald-300 py-1 px-2" : ""}
                             ${value === "pending" ? "bg-amber-300 py-1 px-2" : ""}
                             rounded-lg
-                          `}
-                        >
+                        `}>
                           {value}
                         </span>
                       </td>
